@@ -3,120 +3,104 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <SplitPane dividerPositions="0.25039123630672927" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <items>
-        <AnchorPane nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: lightskyblue;" SplitPane.resizableWithParent="false">
-          <children>
-                <Button layoutX="101.0" layoutY="275.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="About" />
-                  <Button layoutX="101.0" layoutY="345.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="View Blockchain" />
-                  <Button layoutX="101.0" layoutY="415.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Reload" />
-                  <Button layoutX="101.0" layoutY="485.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Settings" />
-                  <Pane prefHeight="131.0" prefWidth="317.0" style="-fx-background-color: white;">
-                     <children>
-                        <ImageView fitHeight="55.0" fitWidth="75.0" layoutX="219.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: transparent;">
-                           <image>
-                              <Image url="@../../../../../../Pictures/telos.JPG" />
-                           </image>
-                        </ImageView>
-                  <Label alignment="CENTER" layoutX="14.0" layoutY="30.0" minHeight="55.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="TelosBC" textAlignment="CENTER" wrapText="false">
-                    <font>
-                      <Font name="System Bold" size="48.0" fx:id="x1" />
-                    </font>
+<fx:root fx:id="window" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: ivory;" type="Pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telosbc.FXMLDocumentController">
+   <children>
+      <Pane fx:id="side_pane" prefHeight="720.0" prefWidth="305.0" style="-fx-background-color: lightskyblue;">
+         <children>
+            <Pane fx:id="title_pane" prefHeight="131.0" prefWidth="305.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="15.0" layoutY="30.0" text="TelosBC">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
                   </Label>
-                     </children>
-                  </Pane>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="53.0" fitWidth="73.0" layoutX="220.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/about.png" />
+                        <Image url="..\..\..\..\..\..\Pictures\telos.JPG" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/view.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/reload.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/settings.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="101.0" layoutY="205.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Home" />
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/about.png" />
-                     </image>
-                  </ImageView>
-          </children>
-        </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: deepskyblue;">
-          <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="776.0" prefWidth="955.0" style="-fx-background-color: ivory;">
-                     <children>
-                        <Label layoutX="324.0" layoutY="46.0" text="Welcome to the Telos Blockchain">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="136.0" layoutY="371.0" text="Create New Assets">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="709.0" layoutY="371.0" text="View Existing Assets">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="137.0" layoutY="410.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="Create">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="715.0" layoutY="410.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="View">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
-            </AnchorPane>
-          </content>
-        </ScrollPane>
-      </items>
-    </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
-      <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
-          <font>
-            <Font size="11.0" fx:id="x3" />
-          </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
-        </Label>
-        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
-      </children>
-      <padding>
-        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-      </padding>
-    </HBox>
-  </children>
-</VBox>
+               </children>
+               <padding>
+                  <Insets right="1.0" />
+               </padding>
+            </Pane>
+            <Button fx:id="home_btn" layoutX="101.0" layoutY="220.0" minHeight="40.0" minWidth="190.0" mnemonicParsing="false" onAction="#showHome" text="Home" />
+            <Button fx:id="about_btn" layoutX="101.0" layoutY="290.0" minHeight="40.0" minWidth="190.0" mnemonicParsing="false" onAction="#showAbout" text="About" />
+            <Button fx:id="viewbc_btn" layoutX="101.0" layoutY="360.0" minHeight="40.0" minWidth="190.0" mnemonicParsing="false" onAction="#showView" text="View Blockchain" />
+            <Button fx:id="settings_btn" layoutX="101.0" layoutY="430.0" minHeight="40.0" minWidth="190.0" mnemonicParsing="false" onAction="#showSettings" text="Settings" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="..\..\img\about.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="..\..\img\about.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="..\..\img\view.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="..\..\img\reload.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="home_pane" layoutX="302.0" prefHeight="720.0" prefWidth="660.0">
+         <children>
+            <Button fx:id="view_btn" layoutX="430.0" layoutY="360.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showView" text="View" />
+            <Button fx:id="create_btn" layoutX="130.0" layoutY="360.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showCreate" text="Create" />
+            <Label layoutX="125.0" layoutY="85.0" text="Welcome to the Telos Blockchain">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="view_pane" layoutX="302.0" prefHeight="720.0" prefWidth="660.0" style="-fx-background-color: green;">
+         <children>
+            <Label layoutX="85.0" layoutY="85.0" text="View your assets and the Blockchain here">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="settings_pane" layoutX="302.0" prefHeight="720.0" prefWidth="660.0" style="-fx-background-color: red;">
+         <children>
+            <Label layoutX="125.0" layoutY="85.0" text="Modify Any Settings Here">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="create_pane" layoutX="302.0" prefHeight="720.0" prefWidth="660.0" style="-fx-background-color: blue;">
+         <children>
+            <Label layoutX="125.0" layoutY="85.0" text="Create a New Asset">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="about_pane" layoutX="302.0" prefHeight="720.0" prefWidth="660.0" style="-fx-background-color: yellow;">
+         <children>
+            <Label layoutX="225.0" layoutY="85.0" text="About TelosBC">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</fx:root>
