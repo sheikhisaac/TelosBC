@@ -8,15 +8,18 @@ package telosbc;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -26,11 +29,11 @@ import javafx.stage.Stage;
 public class FXMLDocumentController implements Initializable {
 
     @FXML
-    private Pane window;
+    private StackPane stackPane;
     @FXML
-    private Pane side_pane;
+    private AnchorPane holderPane;
     @FXML
-    private Pane title_pane;
+    private AnchorPane sideAnchor;
     @FXML
     private Button home_btn;
     @FXML
@@ -40,11 +43,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button settings_btn;
     @FXML
-    private Pane home_pane;
+    private Button close_btn;
     @FXML
     private Button view_btn;
     @FXML
     private Button create_btn;
+    @FXML
+    private Pane home_pane;
     @FXML
     private Pane about_pane;
     @FXML
@@ -56,66 +61,65 @@ public class FXMLDocumentController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        createPages();
     }    
+    private void setNode(Node node) {
+     
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add((Node) node);
+    }
+    
+    //Load all fxml files to a cahce for swapping
+    private void createPages() {
+        try {
+            home_pane = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            about_pane = FXMLLoader.load(getClass().getResource("/modules/About.fxml"));
+            view_pane = FXMLLoader.load(getClass().getResource("/modules/View.fxml"));
+            settings_pane = FXMLLoader.load(getClass().getResource("/modules/Settings.fxml"));
+            create_pane = FXMLLoader.load(getClass().getResource("/modules/Create.fxml"));
 
+            //set up default node on page load
+            setNode(home_pane);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
     @FXML
-    private void showHome(ActionEvent event) {
-        home_pane.setVisible(true);
-        about_pane.setVisible(false);
-        view_pane.setVisible(false);
-        settings_pane.setVisible(false);
-        create_pane.setVisible(false);
+    private void openHome(ActionEvent event) {
+        setNode(home_pane);
     }
 
     @FXML
-    private void showAbout(ActionEvent event) throws IOException{
-     Stage stage; 
-     Parent root;
-     if(event.getSource()==home_btn){
-        //get reference to the button's stage         
-        stage=(Stage) home_btn.getScene().getWindow();
-        //load up OTHER FXML document
-  root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-      }
-     else{
-       stage=(Stage) about_btn.getScene().getWindow();
-  root = FXMLLoader.load(getClass().getResource("About.fxml"));
-      }
-     //create a new scene with root and set the stage
-      Scene scene = new Scene(root);
-      stage.setScene(scene);
-      stage.show();
+    private void openAbout(ActionEvent event){
+        setNode(about_pane);
     }
 
     @FXML
-    private void showView(ActionEvent event) {
-        home_pane.setVisible(false);
-        about_pane.setVisible(false);
-        view_pane.setVisible(true);
-        settings_pane.setVisible(false);
-        create_pane.setVisible(false);
+    private void openView(ActionEvent event) {
+        setNode(view_pane);
     }
 
     @FXML
-    private void showSettings(ActionEvent event) {
-        home_pane.setVisible(false);
-        about_pane.setVisible(false);
-        view_pane.setVisible(false);
-        settings_pane.setVisible(true);
-        create_pane.setVisible(false);
+    private void openSettings(ActionEvent event) {
+        setNode(settings_pane);
     }
 
     @FXML
-    private void showCreate(ActionEvent event) {
-        home_pane.setVisible(false);
-        about_pane.setVisible(false);
-        view_pane.setVisible(false);
-        settings_pane.setVisible(false);
-        create_pane.setVisible(true);
+    private void openCreate(ActionEvent event) {
+        setNode(create_pane);
     }
+    
+    @FXML
+    private void Exit(ActionEvent event) {
+        Platform.exit();
+    }
+    
     
 }

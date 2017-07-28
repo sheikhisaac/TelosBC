@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TelosBC.jar" size="3880" download="eager" />
+    <jar href="TelosBC.jar" size="5778" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TelosBC" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="telosbc.TelosBC"  name="TelosBC" />
+  <jfx:javafx-desc width="800" height="600" main-class="telosbc.Main" name="TelosBC" />
   <update check="always"/>
 </jnlp>
